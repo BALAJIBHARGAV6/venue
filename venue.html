@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Venue</title>
+    <style>
+        .venue-section {
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .venue-title {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .venue-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        
+        .venue-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .venue-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .venue-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .venue-address {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .directions-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .directions-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .venue-content {
+                flex-direction: column;
+            }
+            
+            .venue-section {
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="venue-section">
+        <h2 class="venue-title">Event Venue</h2>
+        
+        <div class="venue-content">
+            <div class="venue-details">
+                <h3>Our College Campus</h3>
+                <p class="venue-address">
+                    <!-- Replace with your college name and address -->
+                    123 College Street<br>
+                    City, State 12345<br>
+                    Building: Main Auditorium<br>
+                    Floor: 2nd Floor
+                </p>
+                
+                <button class="directions-btn" id="getDirectionsBtn">
+                    Get Directions
+                </button>
+            </div>
+            
+            <div class="venue-image">
+                <!-- Replace with your college image -->
+                <img src="https://via.placeholder.com/400x300" alt="College Campus">
+            </div>
+        </div>
+    </section>
+
+    <script>
+       document.getElementById('getDirectionsBtn').addEventListener('click', function() {
+    // Use the college name directly instead of coordinates
+    const collegeName = "MIC College of Technology";
+    
+    // Create the Google Maps directions URL with the college name
+    const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(collegeName)}`;
+    
+    // Open in a new tab
+    window.open(mapsUrl, '_blank');
+});
+    </script>
+</body>
+</html>
